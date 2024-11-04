@@ -7,11 +7,10 @@ local M = {}
 
 M.base46 = {
   theme = "rxyhn",
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 }
 
 -- ---@class MasonConfig

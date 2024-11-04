@@ -48,6 +48,9 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    config = function()
+      -- dofile(vim.g.base46_cache .. "dap")
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -88,8 +91,8 @@ return {
     -- lazy = false,      -- Recommended
     ft = "markdown", -- If you decide to lazy-load anyway
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons"
-    }
-}
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 }
