@@ -6,31 +6,31 @@
 local M = {}
 
 M.base46 = {
-	theme = "rxyhn",
+  theme = "rxyhn",
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  -- hl_override = {
+  -- 	Comment = { italic = true },
+  -- 	["@comment"] = { italic = true },
+  -- },
 }
 
 -- ---@class MasonConfig
 M.mason = {
   pkgs = {
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "prettier",
-        "ansible-language-server",
-        "bash-language-server",
-        "dockerfile-language-server",
-        "lua-language-server",
-        "yaml-language-server",
-        "shellcheck",
-        "shfmt",
-        "rust-analyzer",
-  }
+    "stylua",
+    "html-lsp",
+    "css-lsp",
+    "prettier",
+    "ansible-language-server",
+    "bash-language-server",
+    "dockerfile-language-server",
+    "lua-language-server",
+    "yaml-language-server",
+    "shellcheck",
+    "shfmt",
+    "rust-analyzer",
+    "codelldb"
+  },
 }
-
 
 return M

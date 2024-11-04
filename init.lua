@@ -35,3 +35,14 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+local function is_buffer_empty()
+  -- Check if the buffer is empty
+  return vim.fn.line "$" == 1 and vim.fn.getline(1) == ""
+end
+
+vim.schedule(function()
+  if is_buffer_empty() then
+    require("nvim-tree.api").tree.open()
+  end
+end)
