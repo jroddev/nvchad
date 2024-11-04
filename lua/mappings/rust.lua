@@ -1,7 +1,13 @@
 local map = vim.keymap.set
 local current_ft = vim.bo.filetype
 
-if current_ft == "rust" then
+-- Check if the current file is within a Rust project by looking for Cargo.toml
+local function in_rust_project()
+  local cargo_toml = vim.fn.findfile("Cargo.toml", ".;")
+  return cargo_toml ~= ""
+end
+
+if in_rust_project() or current_ft == "rust" then
   map("n", "<c-F9>", function()
     vim.cmd.RustLsp "testables"
   end, { desc = "Rust: Testables" })
