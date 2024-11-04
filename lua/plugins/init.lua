@@ -57,8 +57,8 @@ return {
     },
     opts = { floating = { border = "rounded" } },
     config = function(...)
-      require("configs.dap-ui")(...)
-    end
+      require "configs.dap-ui"(...)
+    end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
@@ -66,5 +66,21 @@ return {
     config = function(_, opts)
       require("nvim-dap-virtual-text").setup()
     end,
+  },
+  {
+    "nvim-neotest/neotest",
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require "rustaceanvim.neotest",
+        },
+      }
+    end,
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
 }

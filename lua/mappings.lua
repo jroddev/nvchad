@@ -74,24 +74,12 @@ map("n", "<s-F10>", function()
 end, { desc = "Rerun last Runnable" })
 
 map("n", "<f11>", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    require("dapui").open()
-    vim.cmd.RustLsp "debuggables"
-  else
-    require("dap").continue()
-  end
-end, { desc = "debuggables" })
+      require("neotest").run.run()
+end, { desc = "NeoTest Closest" })
 
 map("n", "<s-f11>", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    require("dapui").open()
-    vim.cmd.RustLsp { "debuggables", bang = true }
-  else
-    require("dap").continue()
-  end
-end, { desc = "debuggables" })
+      require("neotest").run.run()
+end, { desc = "NeoTest File" })
 
 map("n", "B", function()
   require("dap").toggle_breakpoint()

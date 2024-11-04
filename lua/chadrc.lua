@@ -29,7 +29,7 @@ M.mason = {
     "shellcheck",
     "shfmt",
     "rust-analyzer",
-    "codelldb"
+    "codelldb",
   },
 }
 
