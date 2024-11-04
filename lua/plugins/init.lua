@@ -49,7 +49,11 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      -- dofile(vim.g.base46_cache .. "dap")
+      vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpointCondition", { text = "🟧", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapLogPoint", { text = "🟩", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "▶️", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpointRejected", { text = "⬜", texthl = "", linehl = "", numhl = "" })
     end,
   },
   {
@@ -66,7 +70,10 @@ return {
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
-    config = function(_, opts)
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function(_, _)
       require("nvim-dap-virtual-text").setup()
     end,
   },
