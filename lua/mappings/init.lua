@@ -51,34 +51,12 @@ vim.api.nvim_create_autocmd("QuitPre", {
   end,
 })
 
--- Rust
-map("n", "<F9>", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    vim.cmd.RustLsp "testables"
-  end
-end, { desc = "Testables" })
-
-map("n", "<F10>", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    vim.cmd.RustLsp "runnables"
-  end
-end, { desc = "Runnables" })
-
-map("n", "<s-F10>", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    vim.cmd.RustLsp { "runnables", bang = true }
-  end
-end, { desc = "Rerun last Runnable" })
-
-map("n", "<f11>", function()
-      require("neotest").run.run()
+map("n", "<f9>", function()
+  require("neotest").run.run()
 end, { desc = "NeoTest Closest" })
 
-map("n", "<s-f11>", function()
-      require("neotest").run.run()
+map("n", "<s-f9>", function()
+  require("neotest").run.run()
 end, { desc = "NeoTest File" })
 
 map("n", "B", function()
@@ -89,18 +67,4 @@ map("n", "<leader>DC", function()
   require("dapui").close()
 end, { silent = true, desc = "Close Dap UI" })
 
-map("n", "K", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    vim.cmd.RustLsp { "hover", "actions" }
-  end
-end, { silent = true, buffer = vim.api.nvim_get_current_buf() })
-
-map("n", "<leader>a", function()
-  local current_ft = vim.bo.filetype
-  if current_ft == "rust" then
-    vim.cmd.RustLsp "codeAction" -- supports rust-analyzer's grouping
-  else
-    vim.lsp.buf.codeAction() -- if you don't want grouping.
-  end
-end, { silent = true, buffer = vim.api.nvim_get_current_buf() })
+require "mappings.rust"

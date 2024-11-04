@@ -33,7 +33,7 @@ require "options"
 require "nvchad.autocmds"
 
 vim.schedule(function()
-  require "mappings"
+  require "mappings.init"
 end)
 
 local function is_buffer_empty()
