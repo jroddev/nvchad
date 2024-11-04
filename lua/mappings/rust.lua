@@ -30,6 +30,14 @@ if in_rust_project() or current_ft == "rust" then
     vim.cmd.RustLsp "debuggables"
   end, { desc = "Rust: Debuggables List" })
 
+  map("n", "EM", function()
+    vim.cmd.RustLsp "expandMacro"
+  end, { desc = "Rust: Expand Macros" })
+
+  map("n", "EE", function()
+    vim.cmd.RustLsp{ "explainError", "cycle" }
+  end, { desc = "Rust: Expand Macros" })
+
   map("n", "K", function()
     vim.cmd.RustLsp { "hover", "actions" }
   end, { silent = true, buffer = vim.api.nvim_get_current_buf() })
@@ -37,4 +45,6 @@ if in_rust_project() or current_ft == "rust" then
   map("n", "<leader>a", function()
     vim.cmd.RustLsp "codeAction" -- supports rust-analyzer's grouping
   end, { silent = true, buffer = vim.api.nvim_get_current_buf() })
+
+
 end
